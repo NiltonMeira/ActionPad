@@ -1,0 +1,20 @@
+{
+  "name": "projetox",
+  "version": "1.0.0",
+  "description": "Projeto criado com a ideia de ser um gerenciador de tarefas inovador, diferente de tudo que ja existe no mercado.",
+  "main": "routes.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.19.1",
+    "mssql": "^10.0.2",
+    "nodemon": "^3.1.0",
+    "sequelize": "^6.37.1"
+  }
+}
