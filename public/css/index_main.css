@@ -1,32 +1,72 @@
 .main_box {
-    background-color: #dda15e;
+    background-color: #02040F;
     display: flex;
-    color: white;
+    color: #FAFAFA;
     justify-content: center;
     padding: 30px;
     flex-direction: column;
     align-items: center;
-    height: 89.5vh;
+    height: 94vh;    
+    gap: 15px;
+    position: relative;
+   
 
 
+}
+
+.general_box{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    min-width: 390px;
+    gap: 15px;
+    box-shadow: 4px 4px #ffd23f;
+    border: 2px #ffd23f solid;
+    padding: 30px;
+    border-radius: 30px;
 }
 
 .small_box {
     display: flex;
-    flex-direction: column;
-    width: 40%;
+    flex-direction: column;    
     gap: 15px;
     margin-bottom: 15px;
+    width: 100%;
+    
 }
 
 .input_text {
-    border-radius: 3px;
-    border: 2px white solid;
-    height: 30px;
+    border-radius: 3px;   
+    background-color: #12141b;
+    height: 40px;
+    border-radius: 20px;
+    color: #FAFAFA;
+    border: 2px #131212 solid;
+    padding-left: 15px;
+    
+    
+}
+
+
+.input_text:focus {
+    border-color: #ffd23f; /* Nova cor da borda quando selecionado */
+    outline: none; /* Removendo a borda padrão do navegador */
+    /* Adicione mais propriedades de estilo conforme necessário */
 }
 
 .btn {
-    color: white;
-    background-color: #606c38;
-    border-radius: 5px;
+    color:#FAFAFA;
+    background-color: #12141b;
+    border-radius: 10px;
+    border: 2px #292929 solid;
+    width: 100px;
+    
+}
+
+.btn:hover{
+    background-color: #fac71e;
+    color: #02040F;
 }

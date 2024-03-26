@@ -1,9 +1,14 @@
 *{
     padding: 0;
     margin: 0;
+    font-family: "Barlow", S;
 }
+
 header{
-    background-color: #dda15e;
+    background-color: #02040F;
+}
+.navbar{
+    padding-left: 15px;
 }
 
 .nav_top{
