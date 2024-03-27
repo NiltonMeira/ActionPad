@@ -1,0 +1,22 @@
+body {
+    background-color: #02040F;
+}
+
+.card_display {
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns:auto auto auto auto;
+    grid-gap: 20px;
+}
+
+.card_item {
+    padding: 20px;
+}
+
+.add_page {
+    font-size: 50px;
+}
+
+.add_item {
+    padding: 20px;
+}
