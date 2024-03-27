@@ -1,8 +1,8 @@
 .wrapper {
     --font-color-dark: #b4b4b4;
-    --font-color-light: #292929;
+    --font-color-light: #FAFAFA;
     --bg-color: #212121;
-    --main-color: #FFD33F;
+    --main-color: #6C3287;
     --secondary-color: #141414;
     position: relative;
     width: 300px;

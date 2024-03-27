@@ -9,31 +9,37 @@ main {
 }
 
 .tools_bar {
-    border: 2px solid #FFD33F;
+    border: 2px solid #6C3287;
     width: 200px;
-    height: 850px;
+    height: 750px;
     border-radius: 30px;
-    box-shadow: 5px 5px #FFD33F;
+    box-shadow: 5px 5px #6C3287;
     position: relative;
 }
 
 .tools_list {
-    margin-top: 100px;
+    margin-top: 50px;
     padding: 15px;
 }
 
 .tool_option {
     border-radius: 15px;
     width: 100%;
-    border: 2px solid #FFD33F;
-    background-color: #02040F;
+    background-color: #12141B;
+    border: 3px solid transparent;
     color: #fafafa;
     margin-bottom: 30%;
+    box-sizing: border-box;
 }
 
 .tool_option:hover {
-    background-color: #FFD33F;
-    color: #02040F;
+    border-color: #6C3287;
+    outline: none;
+}
+
+.tool_option:focus {
+    background-color: #6C3287;
+    color: #fafafa;
 }
 
 .home_space {
@@ -44,12 +50,12 @@ main {
 
 .home_button {
     border-radius: 15px;
-    border: 2px solid #FFD33F;
-    background-color: #02040F;
+    background-color: #12141B;
+    border: 3px solid transparent;
     color: #fafafa;
 }
 
 .home_button:hover {
-    background-color: #FFD33F;
-    color: #02040F;
+    border-color: #6C3287;
+    outline: none;
 }
