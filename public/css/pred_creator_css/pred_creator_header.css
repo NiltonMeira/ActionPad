@@ -1,0 +1,15 @@
+*{
+    font-family: 'Barlow', sans-serif;  
+}
+
+header {
+    padding: 40px;
+    padding-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+a.navbar-brand{
+    color: white;
+    font-size: 30px;
+}
