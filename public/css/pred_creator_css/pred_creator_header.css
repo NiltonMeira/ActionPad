@@ -31,3 +31,7 @@ a.navbar-brand{
     color: var(--input_color);
     font-size: 30px;
 }
+
+a.navbar-brand:hover{
+    color: var(--main_color);
+}
