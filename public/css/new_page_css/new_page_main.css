@@ -59,17 +59,19 @@
     /* Adicione mais propriedades de estilo conforme necessário */
 }
 
-.btn {
+.btn_create {
     color:var(--input_color);
     background-color: var(--bg_color);
     border-radius: 10px;
     border: 2px var(--main_color) solid;
     width: 100px;
+    height: 37.8px;
     
 }
 
-.btn:hover{
-    background-color: var(--main_color);    
+.btn_create:hover{
+    background-color: var(--main_color); 
+    color: #FAFAFA;   
 }
 .text{
     display: flex;
@@ -97,3 +99,36 @@
     resize: none;   
     height: 100px;
 }
+.btn{
+    background-color: var(--bg_color);
+    color: var(--input_color);
+    border: 2px var(--grey_border) solid;
+    
+}
+
+.btn:hover{
+    background-color: var(--main_color);
+}
+
+.btn:focus{
+    background-color: var(--main_color);
+    color: #FAFAFA;
+}
+.dropdown-menu{
+    width: 100%;
+    background-color: var(--bg_color);
+    border: 1px #706f74 solid;
+    
+}
+a.dropdown-item{
+    color: var(--input_color);
+}
+
+
+.title_text:hover{
+    color: var(--main_color);
+}
+
+
+
+
