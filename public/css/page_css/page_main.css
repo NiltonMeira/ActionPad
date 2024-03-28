@@ -1,5 +1,5 @@
 body {
-    background-color: #02040F;
+    background-color: var(--bg_color);
 }
 
 main {
@@ -25,9 +25,9 @@ main {
 .tool_option {
     border-radius: 15px;
     width: 100%;
-    background-color: #12141B;
+    background-color: var(--bg_color);
     border: 3px solid transparent;
-    color: #fafafa;
+    color: var(--input_color);
     margin-bottom: 30%;
     box-sizing: border-box;
 }
@@ -50,9 +50,9 @@ main {
 
 .home_button {
     border-radius: 15px;
-    background-color: #12141B;
+    background-color: var(--bg_color);
     border: 3px solid transparent;
-    color: #fafafa;
+    color: var(--input_color);
 }
 
 .home_button:hover {
