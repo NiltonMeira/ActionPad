@@ -12,7 +12,7 @@ input[type="checkbox"] {
     margin-right: 10px;
     vertical-align: middle;
     position: relative;
-    background-color: #02040F;
+    background-color: var(--bg_color);
 }
 
 input[type="checkbox"]:checked ~ .check_box {
@@ -20,7 +20,7 @@ input[type="checkbox"]:checked ~ .check_box {
 }
 
 .checkbox_label {
-  color: #fafafa;
+  color: var(--input_color);
   font-size: 20px;
   vertical-align: middle;
 }

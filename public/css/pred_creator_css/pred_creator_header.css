@@ -1,5 +1,23 @@
-*{
-    font-family: 'Barlow', sans-serif;  
+:root{
+    --bg_color: #f6f7fa;
+    --input_color: #12141b;
+    --main_color: #6C3287;
+    --grey_border: #131212;
+    --input_bg_color: #f6f7fa;
+}
+
+.dark-mode {
+    --bg_color: #02040F;
+    --input_color: #FAFAFA;
+    --main_color: #6C3287;
+    --grey_border: #12141B;
+    --input_bg_color: #12141B;
+}
+
+*{ 
+    padding: 0;
+    margin: 0;
+    font-family: "Barlow", sans-serif;
 }
 
 header {
@@ -10,6 +28,6 @@ header {
 }
 
 a.navbar-brand{
-    color: white;
+    color: var(--input_color);
     font-size: 30px;
 }
