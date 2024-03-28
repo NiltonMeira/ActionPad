@@ -1,5 +1,5 @@
 body {
-    background-color: #02040F;
+    background-color: var(--bg_color);
 }
 
 .card_display {
