@@ -25,7 +25,7 @@ main {
 .tool_option {
     border-radius: 15px;
     width: 100%;
-    background-color: var(--bg_color);
+    background-color: var(--input_bg_color);
     border: 3px solid transparent;
     color: var(--input_color);
     margin-bottom: 30%;

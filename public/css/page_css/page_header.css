@@ -1,17 +1,14 @@
 :root{
     --bg_color: #f6f7fa;
-    --input_color: #12141b;
+    --input_color: #FAFAFA;
     --main_color: #6C3287;
-    --grey_border: #131212;
-    --input_bg_color: #f6f7fa;
+    --input_bg_color: #ebebeb;
 }
 
-/* Cores para o modo escuro */
 .dark-mode {
     --bg_color: #02040F;
     --input_color: #FAFAFA;
     --main_color: #6C3287;
-    --grey_border: #12141B;
     --input_bg_color: #12141B;
 }
 
