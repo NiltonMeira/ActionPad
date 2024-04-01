@@ -11,15 +11,10 @@ const predefinicoes = database.define('Predefinicoes', {
         allowNull: false,
         primaryKey: true
     },
-    Nome: {
-        type: Sequelize.STRING(50),
-        allowNull: false
-    },
-    Descricao: {
+    Name: {
         type: Sequelize.STRING(50),
         allowNull: false
     }
-
 });
 
 predefinicoes.belongsTo(usuarios, {

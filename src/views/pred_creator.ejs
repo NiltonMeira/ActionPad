@@ -13,15 +13,15 @@
         crossorigin="anonymous"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../../public/css/pred_creator_css/pred_creator_header.css">
-    <link rel="stylesheet" href="../../public/css/pred_creator_css/pred_creator_main.css">
+    <link rel="stylesheet" href="css/pred_creator_css/pred_creator_header.css">
+    <link rel="stylesheet" href="css/pred_creator_css/pred_creator_main.css">
 
-    <link rel="stylesheet" href="../../public/css/details_css/option_bar.css">
-    <link rel="stylesheet" href="../../public/css/details_css/page_card.css">
-    <link rel="stylesheet" href="../../public/css/details_css/check_box.css">
-    <link rel="stylesheet" href="../../public/css/details_css/day_night.css">
+    <link rel="stylesheet" href="css/details_css/option_bar.css">
+    <link rel="stylesheet" href="css/details_css/page_card.css">
+    <link rel="stylesheet" href="css/details_css/check_box.css">
+    <link rel="stylesheet" href="css/details_css/day_night.css">
 
-    <script defer src="../../public/js/script.js"></script>
+    <script defer src="js/script.js"></script>
 
     <script></script>
 
@@ -65,52 +65,26 @@
     </header>
     <main>
         <div class="main_container">
+          <form action="/predef" method="post">
             <div class="pred_form">
-                <label for="pred_form" class="title">Create a Pré-definition</label>
-                <div class="pred_name">
-                    <input type="text" class="input_text" placeholder="Name">
-                </div>
-                <div class="tools_box">
+              <label for="pred_form" class="title">Create a Pré-definition</label>
+              <div class="pred_name">
+                  <input type="text" class="input_text" placeholder="Name" name="name">
+              </div>
+              <div class="tools_box">
+                  <% ferramentasResponse.forEach(x => { %>
                     <div class="option_checkbox">
-                        <input type="checkbox" id="item1" name="item1">
-                        <label for="item1" class="check_box"></label>
-                        <label for="item1" class="checkbox_label">Tool 1</label>
+                      <input type="checkbox" id="<%= x.IDFerramentas %>" value="<%= x.IDFerramentas %>" name="<%= x.IDFerramentas %>">
+                      <label for="<%= x.IDFerramentas %>" class="check_box"></label>
+                      <label for="<%= x.IDFerramentas %>" class="checkbox_label"><%- x.Descricao %></label>
                     </div>
-                    <div class="option_checkbox">
-                        <input type="checkbox" id="item2" name="item2">
-                        <label for="item2" class="check_box"></label>
-                        <label for="item2" class="checkbox_label">Tool 2</label>
-                    </div>
-                    <div class="option_checkbox">
-                        <input type="checkbox" id="item3" name="item3">
-                        <label for="item3" class="check_box"></label>
-                        <label for="item3" class="checkbox_label">Tool 3</label>
-                    </div>
-                    <div class="option_checkbox">
-                        <input type="checkbox" id="item4" name="item4">
-                        <label for="item4" class="check_box"></label>
-                        <label for="item4" class="checkbox_label">Tool 4</label>
-                    </div>
-                    <div class="option_checkbox">
-                        <input type="checkbox" id="item5" name="item5">
-                        <label for="item5" class="check_box"></label>
-                        <label for="item5" class="checkbox_label">Tool 5</label>
-                    </div>
-                    <div class="option_checkbox">
-                        <input type="checkbox" id="item6" name="item6">
-                        <label for="item6" class="check_box"></label>
-                        <label for="item6" class="checkbox_label">Tool 6</label>
-                    </div>
-                    <div class="option_checkbox">
-                        <input type="checkbox" id="item7" name="item7">
-                        <label for="item7" class="check_box"></label>
-                        <label for="item7" class="checkbox_label">Tool 7</label>
-                    </div>
-                </div>
-                <div>
-                    <button type="button" class="btn">Create</button>
-                </div>
-            </div>
+                  <% }) %>
+              </div>
+              <div>
+                  <button type="submit" class="btn">Create</button>
+              </div>
+          </div>
+          </form>
         </div>
     </main>
 </body>
