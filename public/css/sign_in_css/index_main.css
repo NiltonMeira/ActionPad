@@ -83,3 +83,12 @@
 .title_text{
     font-size: 30px;
 }
+
+.form_setup{
+    display: flex;
+    flex-direction: column;    
+    gap: 50px;
+    margin-bottom: 15px;
+    width: 100%;
+    align-items: center;
+}

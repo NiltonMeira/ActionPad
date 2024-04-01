@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ProjetoX</title>
+  <title>Login</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,8 +18,8 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
 
-  <link rel="stylesheet" href="css/sign_in_css/index_header.css">
-  <link rel="stylesheet" href="css/sign_in_css/index_main.css">
+  <link rel="stylesheet" href="css/log_in.css/login_header.css">
+  <link rel="stylesheet" href="css/log_in.css/login_main.css">
   <link rel="stylesheet" href="css/details_css/day_night.css">
 
   <script defer src="js/script.js"></script>
@@ -73,37 +73,33 @@
 
       <div class="general_box">
         <div class="text">
-          <h2>Welcome</h2>
+          <h2>Welcome back</h2>
           <h2 class="buddy">Buddy!</h2>
         </div>
         <div>
-          <h2>Tell us more about you!<h2>
+          <h2>We just need to check your IDs!<h2>
         </div>
 
-        <form action="/cadastro" method="post" class="form_setup">
+        <form action="/login" method="post" class="form_setup">
           <div class="container-fluid small_box">
-
-            <input type="text" class="input_text" placeholder="Name" name="name">
+            <input type="text" class="input_text" placeholder="Email" name="emaill">
           </div>
+  
           <div class="container-fluid small_box">
-
-            <input type="text" class="input_text" placeholder="Email" name="email">
+  
+            <input type="password" class="input_text" placeholder="Password" name="passwordd">
           </div>
-          <div class="container-fluid small_box">
 
-            <input type="password" class="input_text" placeholder="Password" name="password">
-          </div>
-          <div class="container-fluid small_box">
+          <button type="submit" class="btn"><b>Login</b></button>
+          <h5>
+            <%= resultado==false ? 'Login or Password incorect' : ''%>
+          </h5>
+        </form>
+        
 
-            <input type="password" class="input_text" placeholder="Confirm Password" name="passwordConfirm">
-          </div>
-          <button type="submit" class="btn"><b>Create</b></button>
-          <p>Already have an account ? <a href="/login">click here</a></p>
-
+        
+        <p>Dont have an account ? <a href="/">click here</a></p>
       </div>
-
-
-      </form>
 
 
 
