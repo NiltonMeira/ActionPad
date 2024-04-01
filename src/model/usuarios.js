@@ -10,7 +10,7 @@ const usuarios = database.define('Usuarios', {
     allowNull: false,
     primaryKey: true
     },
-    Nome: {
+    Name: {
     type: Sequelize.STRING(50),
     allowNull: false
     },
@@ -18,9 +18,13 @@ const usuarios = database.define('Usuarios', {
     type: Sequelize.STRING(50),
     allowNull: false
     },
-    Senha: {
+    Password: {
     type: Sequelize.STRING(50),
     allowNull: false
+    },
+    Confirm: {
+        type: Sequelize.STRING(50),
+        allowNull: false
     }
 });
 
