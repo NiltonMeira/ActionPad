@@ -2,12 +2,6 @@ body {
     background-color: var(--bg_color);
 }
 
-main {
-    display: flex;
-    justify-content: space-between;
-    padding: 40px;
-}
-
 .tools_bar {
     border: 2px solid #6C3287;
     width: 200px;
@@ -58,4 +52,25 @@ main {
 .home_button:hover {
     border-color: #6C3287;
     outline: none;
+}
+
+.main_box{
+    display: flex;
+    gap: 30px;
+    padding: 40px;
+}
+.grid_content{
+    width: 100%;
+    height: 100px;
+}
+
+.text_content{
+    width: 100%;
+    border: none;
+    width: 100%;
+    background-color: var(--input_bg_color);
+    color: var(--input_color);    
+    box-sizing: border-box;
+    min-height:px; /* Altura mínima para o conteúdo */
+   
 }
