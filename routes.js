@@ -13,4 +13,6 @@ route.get('/login', home.loginGet);
 route.post('/login', login.checkLogin);
 
 route.get('/page_select', home.pageSelectGet);
+
+route.get('/new_page', home.newPageGet)
 module.exports = route;

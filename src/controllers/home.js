@@ -4,10 +4,15 @@ module.exports = {
     },
 
     async loginGet(req, res){
-        res.render('../views/login')
+        res.render('../views/login', {resultado: true})
     },
 
     async pageSelectGet(req, res){
         res.render('../views/page_select')
+    },
+
+    async newPageGet(req, res){
+        res.render('../views/new_page')
     }
 }
+
