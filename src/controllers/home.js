@@ -13,6 +13,10 @@ module.exports = {
 
     async newPageGet(req, res){
         res.render('../views/new_page')
+    },
+
+    async pageGet(req, res){
+        res.render('../views/page')
     }
 }
 
