@@ -2,7 +2,7 @@ body {
     background-color: var(--bg_color);
 }
 
-main {
+.main_box {
     display: flex;
     justify-content: space-between;
     padding: 40px;
@@ -58,4 +58,28 @@ main {
 .home_button:hover {
     border-color: #6C3287;
     outline: none;
+}
+
+.canva_tool {
+    border: 2px solid #6C3287;
+    color: var(--input_color);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 5px;
+}
+
+.button_canva {
+    background-color: var(--input_bg_color);
+    color: var(--input_color);
+    border: 2px solid #6C3287;
+    width: 100px;
+}
+
+
+canvas {
+    /* background-color: #f6f7fa; */
+    border: 2px solid #6C3287;
+    border-radius: 20px;
 }

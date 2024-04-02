@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="css/details_css/day_night.css">
 
     <script defer src="js/script.js"></script>
+    <script defer src="js/drawCanvas.js"></script>
 
     <script></script>
 
@@ -90,19 +91,34 @@
       </div>
   </header>
   <main>
+    <article class="main_box">
       <div class="tools_bar">
-          <div class="tools_list">
-              <input value="Text" type="button" class="tool_option">
-              <input value="Draw" type="button" class="tool_option">
-              <input value="tool3" type="button" class="tool_option">
-              <input value="tool4" type="button" class="tool_option">
-              <input value="tool5" type="button" class="tool_option">
-          </div>
+        <div class="tools_list">
+            <input value="Text" type="button" class="tool_option">
+            <input value="Draw" type="button" class="tool_option">
+            <input value="tool3" type="button" class="tool_option">
+            <input value="tool4" type="button" class="tool_option">
+            <input value="tool5" type="button" class="tool_option">
+        </div>
 
-          <div class="home_space">
-              <input value="Home" type="button" class="home_button">
-          </div>
+        <div class="home_space">
+            <input value="Home" type="button" class="home_button">
+        </div>
       </div>
+      <div class="grid_content">
+        <div class="canva_tool">
+          <canvas id="myCanvas" width="600" height="600"></canvas>
+          <div class="canva_settings">
+            <button id="eraserBtn" class="button_canva">Drawing</button>
+            <input type="range" id="eraserSize" min="1" max="50" value="10">
+            <label for="eraserSize">Eraser Size</label>
+            <input type="color" id="colorPicker" value="#6C3287">
+            <input type="range" id="pencilSize" min="1" max="20" value="1">
+            <label for="pencilSize">Pencil Size</label>
+          </div>
+        </div>
+      </div>
+    </article>
   </main>
   <footer>
 

@@ -17,4 +17,5 @@ route.get('/page_select', home.pageSelectGet);
 route.get('/new_page', home.newPageGet)
 
 route.get('/page', home.pageGet)
+
 module.exports = route;
