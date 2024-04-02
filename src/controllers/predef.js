@@ -1,6 +1,6 @@
 const ferramentas = require('../model/ferramentas');
 const predefinicao = require('../model/predefinicoes');
-const ferramenta = require('../model/ferramentasPredef');
+const ferramentaPredf = require('../model/ferramentasPredef');
 
 module.exports = {
     async ferramentasGet(req, res) {
@@ -21,7 +21,7 @@ module.exports = {
 
         const idPredef = predefinicao.IDPredefinicoes
 
-        await ferramenta.create({
+        await ferramentaPredf.create({
             IDPredef: idPredef,
             IDFerramenta: dados.IDFerramenta
         });
@@ -29,5 +29,4 @@ module.exports = {
         res.redirect('/');
     }
 
-    // ADD THE LOGIC TO ITERATE EACH TOOL ON THE CHECKBOXES
 }

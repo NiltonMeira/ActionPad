@@ -21,5 +21,7 @@ const ferramentas = database.define('Ferramentas', {
 
 });
 
+
+
 // Exportando essa tabela
 module.exports = ferramentas;
