@@ -83,20 +83,20 @@
       <div class="grid_content">
 
         <div class="grid_cell">
-          <div  id="editor">
+          <div id="editor">
             This is some example
           </div>
         </div>
 
         <div class="grid_cell">
           <div id="canvas_cell">
-            <canvas id="myCanvas" height="270"></canvas>
+            <canvas class="myCanvas" height="270"></canvas>
             <div class="canva_settings">
-              <button id="eraserBtn" class="button_canva">Drawing</button>
-              <input type="range" id="eraserSize" min="1" max="50" value="10">
+              <button class="eraserBtn">Drawing</button>
+              <input type="range" class="eraserSize" min="1" max="50" value="10">
               <label for="eraserSize">Eraser Size</label>
-              <input type="color" id="colorPicker" value="#6C3287">
-              <input type="range" id="pencilSize" min="1" max="20" value="1">
+              <input type="color" class="colorPicker" value="#6C3287">
+              <input type="range" class="pencilSize" min="1" max="20" value="1">
               <label for="pencilSize">Pencil Size</label>
             </div>
           </div>
@@ -104,18 +104,6 @@
 
       </div>
 
-
-      <!-- <div class="canva_tool">
-        <canvas id="myCanvas" width="200" height="300"></canvas>
-        <div class="canva_settings">
-          <button id="eraserBtn" class="button_canva">Drawing</button>
-          <input type="range" id="eraserSize" min="1" max="50" value="10">
-          <label for="eraserSize">Eraser Size</label>
-          <input type="color" id="colorPicker" value="#6C3287">
-          <input type="range" id="pencilSize" min="1" max="20" value="1">
-          <label for="pencilSize">Pencil Size</label>
-        </div>
-      </div> -->
     </article>
   </main>
 
@@ -125,10 +113,10 @@
 
   <script>
     ClassicEditor
-      .create(document.querySelector('#editor'))
-      .catch(error => {
-        console.error(error);
-      });
+    .create(document.querySelector("#editor"))
+    .catch(error => {
+  console.error(error);
+    });
   </script>
 
 </body>

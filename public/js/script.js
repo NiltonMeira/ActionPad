@@ -6,6 +6,8 @@ const drawOption = document.getElementById('drawOption');
 const gridContent = document.querySelector('.grid_content');
 const toolsList = document.querySelector('.tools_list');
 
+let editor_count = 0;
+
 themeSwitch.addEventListener('change', function() {
     if(this.checked) {
         document.documentElement.classList.add('dark-mode');
@@ -35,32 +37,22 @@ function createNewElement(type) {
     newCell.classList.add('grid_cell');
 
     if (type === 'Drawing') {
+        
         const canvasDiv = document.createElement('div');
         canvasDiv.id = 'canvas_cell';
         newCell.appendChild(canvasDiv);
 
-        const Canvas = document.createElement('canvas');
-        Canvas.id = 'myCanvas';
-        Canvas.height = '270';
-        canvasDiv.appendChild(Canvas);
+    } else if (type === 'Text') {
 
-        const canvasSettings = document.createElement('div');
-        canvasSettings.id = 'canvasSettings';
-        canvasSettings.class="canva_settings"
-        canvasDiv.appendChild(canvasSettings);
+        const textDiv = document.createElement('div');
+        textDiv.id = "editor" + editor_count;
+        newCell.appendChild(textDiv);
 
-        const canvasButton = document.createElement('button');
-        canvasButton.id = 'eraserBtn';
-        canvasButton.class = 'button_canva';
-        canvasSettings.appendChild(canvasButton);
-
-        const eraserInput = document.createElement('input');
-        eraserInput.type = 'range';
-        eraserInput.id = 'eraserSize';
-        eraserInput.min = '1';
-        eraserInput.max = '50';
-        eraserInput.value = '10';
-        canvasSettings.appendChild(eraserInput);
+        ClassicEditor
+            .create(textDiv)
+            .catch(error => {
+            console.error(error);
+        });
     }
 
     gridContent.appendChild(newCell);
@@ -79,3 +71,4 @@ document.getElementsByClassName('close')[0].addEventListener('click', function()
     modal.style.display = 'none';
 });
 
+editors();

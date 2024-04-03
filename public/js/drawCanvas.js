@@ -1,9 +1,15 @@
-const canvas = document.getElementById('myCanvas');
-const ctx = canvas.getContext('2d');
-const colorPicker = document.getElementById('colorPicker');
-const pencilSize = document.getElementById('pencilSize');
-const eraserBtn = document.getElementById('eraserBtn');
-const eraserSize = document.getElementById('eraserSize');
+const canvas = Array.from( document.getElementsByClassName('myCanvas'))
+
+// const ctx = canvas.forEach( x=> {
+//     x.getContext('2d');
+// });
+
+const ctx = canvas.map(x=>x.getContext('2d'))
+
+const colorPicker = Array.from(document.getElementsByClassName('colorPicker'));
+const pencilSize = Array.from(document.getElementsByClassName('pencilSize'));
+const eraserBtn = Array.from(document.getElementsByClassName('eraserBtn'));
+const eraserSize = Array.from(document.getElementsByClassName('eraserSize'));
 const gridCell = document.querySelector('.grid_cell');
 
 let isDrawing = false;
@@ -16,8 +22,11 @@ let eraserLineWidth = 10;
 let pencilLineWidth = 1;
 
 function fitCanvasToGridCell() {
-    canvas.width = gridCell.clientWidth;
-    canvas.height = gridCell.clientHeight - 100;
+
+    canvas.forEach(x => {
+        x.width = gridCell.clientWidth;
+        x.height = gridCell.clientHeight - 100;
+    });
 }
 
 fitCanvasToGridCell();
@@ -25,12 +34,12 @@ fitCanvasToGridCell();
 function draw(e) {
     if (!isDrawing) return;
 
-    ctx.strokeStyle = isErasing ? eraserColor : strokeColor;
-    ctx.lineWidth = isErasing ? eraserLineWidth : pencilLineWidth;
-    ctx.beginPath();
-    ctx.moveTo(lastX, lastY);
-    ctx.lineTo(e.offsetX, e.offsetY);
-    ctx.stroke();
+    ctx[0].strokeStyle = isErasing ? eraserColor : strokeColor;
+    ctx[0].lineWidth = isErasing ? eraserLineWidth : pencilLineWidth;
+    ctx[0].beginPath();
+    ctx[0].moveTo(lastX, lastY);
+    ctx[0].lineTo(e.offsetX, e.offsetY);
+    ctx[0].stroke();
 
     lastX = e.offsetX;
     lastY = e.offsetY;
@@ -38,36 +47,60 @@ function draw(e) {
     saveDrawing();
 }
 
-canvas.addEventListener('mousedown', (e) => {
-    isDrawing = true;
-    lastX = e.offsetX;
-    lastY = e.offsetY;
+canvas.forEach( x => {
+    x.addEventListener('mousedown', (e) => {
+        isDrawing = true;
+        lastX = e.offsetX;
+        lastY = e.offsetY;
+    });
 });
 
-canvas.addEventListener('mousemove', draw);
 
-canvas.addEventListener('mouseup', () => isDrawing = false);
-canvas.addEventListener('mouseout', () => isDrawing = false);
-
-colorPicker.addEventListener('change', () => {
-    strokeColor = colorPicker.value;
+canvas.forEach( x=> {
+    x.addEventListener('mousemove', draw); 
 });
 
-pencilSize.addEventListener('input', () => {
-    pencilLineWidth = pencilSize.value;
+canvas.forEach( x=> {
+    x.addEventListener('mousemove', draw);
 });
 
-eraserBtn.addEventListener('click', () => {
-    isErasing = !isErasing;
-    eraserBtn.textContent = isErasing ? 'Eraser' : 'Drawing';
+canvas.forEach( x=> {
+    x.addEventListener('mouseup', () => isDrawing = false);
 });
 
-eraserSize.addEventListener('input', () => {
-    eraserLineWidth = eraserSize.value;
+canvas.forEach( x=> {
+    x.addEventListener('mouseout', () => isDrawing = false);
+});
+
+colorPicker.forEach(x => {
+    x.addEventListener('change', () => {
+        strokeColor = x.value;
+    });
+});
+
+pencilSize.forEach(x => {
+    x.addEventListener('input', () => {
+        pencilLineWidth = pencilSize.value;
+    });
+});
+
+eraserBtn.forEach(x => {
+    x.addEventListener('click', () => {
+        isErasing = !isErasing;
+        x.textContent = isErasing ? 'Eraser' : 'Drawing';
+    });
+});
+
+eraserSize.forEach(x => {
+    x.addEventListener('input', () => {
+        eraserLineWidth = x.value;
+    });
 });
 
 function saveDrawing() {
-const dataURL = canvas.toDataURL();
+const dataURL = canvas.forEach(x => {
+    x.toDataURL();
+});
 localStorage.setItem('drawing', dataURL); 
 }
 
@@ -76,7 +109,7 @@ const savedDrawing = localStorage.getItem('drawing');
 if (savedDrawing) {
     const img = new Image();
     img.onload = function() {
-        ctx.drawImage(img, 0, 0);
+        ctx[0].drawImage(img, 0, 0);
     };
     img.src = savedDrawing;
 }
