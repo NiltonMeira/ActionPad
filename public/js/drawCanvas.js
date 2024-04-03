@@ -4,6 +4,7 @@ const colorPicker = document.getElementById('colorPicker');
 const pencilSize = document.getElementById('pencilSize');
 const eraserBtn = document.getElementById('eraserBtn');
 const eraserSize = document.getElementById('eraserSize');
+const gridCell = document.querySelector('.grid_cell');
 
 let isDrawing = false;
 let lastX = 0;
@@ -13,6 +14,13 @@ let isErasing = false;
 let eraserColor = '#f6f7fa'; 
 let eraserLineWidth = 10; 
 let pencilLineWidth = 1;
+
+function fitCanvasToGridCell() {
+    canvas.width = gridCell.clientWidth;
+    canvas.height = gridCell.clientHeight - 100;
+}
+
+fitCanvasToGridCell();
 
 function draw(e) {
     if (!isDrawing) return;
@@ -73,3 +81,5 @@ if (savedDrawing) {
     img.src = savedDrawing;
 }
 });
+
+window.addEventListener('resize', fitCanvasToGridCell);
