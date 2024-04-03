@@ -58,6 +58,7 @@ body {
     display: flex;
     gap: 30px;
     padding: 40px;
+    width: 100%;
 }
 .grid_content{
     width: 100%;
@@ -73,4 +74,16 @@ body {
     box-sizing: border-box;
     min-height:px; /* Altura mínima para o conteúdo */
    
+}
+
+#editor{
+    width: 90%;
+}
+
+article{
+    min-width: 900px !important;
+}
+
+.ck-editor__main{
+    width: 100%;
 }
