@@ -60,22 +60,4 @@ function initializeDrawing(canvas) {
     eraserSize.addEventListener('input', () => {
         eraserLineWidth = eraserSize.value;
     });
-
-    function saveDrawing() {
-        const dataURL = canvas.toDataURL();
-        localStorage.setItem('drawing', dataURL); 
-    }
-
-    window.addEventListener('load', () => {
-        const savedDrawing = localStorage.getItem('drawing');
-        if (savedDrawing) {
-            const img = new Image();
-            img.onload = function() {
-                ctx.drawImage(img, 0, 0);
-            };
-            img.src = savedDrawing;
-        }
-    });
-
-    window.addEventListener('resize', fitCanvasToGridCell);
 }
