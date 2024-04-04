@@ -6,6 +6,7 @@ body {
     display: flex;
     padding: 40px;
     gap: 20px;
+    height: auto;
 }
 
 .tools_bar {
@@ -111,9 +112,14 @@ article{
 }
 
 .grid_content {
-    display: grid;
-    grid-template-columns: 760px 760px;
-    grid-template-rows: 750px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 750px;
+    height: 100%;
+    gap: 30px;  
+    flex-wrap: wrap;
+    height: auto;
 }
 
 .grid_cell {
@@ -126,6 +132,9 @@ article{
     color: var(--input_color);
     position: relative;
     box-sizing: border-box;
+    width: 45%;    
+    min-height: 750px;
+    min-width: 700px;
 }
 
 /* Modal styles */
@@ -182,3 +191,5 @@ article{
     background-color: #6C3287;
     color: #fafafa;
 }
+
+
