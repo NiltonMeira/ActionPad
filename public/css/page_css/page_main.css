@@ -186,3 +186,8 @@ article{
     background-color: #6C3287;
     color: #fafafa;
 }
+
+.name_input {
+    background-color: var(--input_bg_color);
+    color: var(--input_color);
+}
