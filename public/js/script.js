@@ -35,8 +35,12 @@ drawOption.addEventListener('click', () => {
 function createNewElement(type) {
     const newCell = document.createElement('div');
     newCell.classList.add('grid_cell');
+    var name = document.getElementById("nameInput").value;
 
-    console.log(type);
+    if (!name && !name.value) {
+        name = 'Tool';
+    }
+
     if (type === 'Drawing') {
         
         const canvasDiv = document.createElement('div');
@@ -95,7 +99,7 @@ function createNewElement(type) {
         const newInput = document.createElement('input');
         newInput.setAttribute('type', 'button');
         newInput.classList.add('tool_option');
-        newInput.value = type + ' Tool';
+        newInput.value = name;
         toolsList.insertBefore(newInput, toolsList.firstChild);
 
         modal.style.display = 'none';
@@ -119,7 +123,7 @@ function createNewElement(type) {
         const newInput = document.createElement('input');
         newInput.setAttribute('type', 'button');    
         newInput.classList.add('tool_option');
-        newInput.value = type + ' Tool';
+        newInput.value = name;
         toolsList.insertBefore(newInput, toolsList.firstChild);
 
         modal.style.display = 'none';
