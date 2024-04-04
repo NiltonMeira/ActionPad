@@ -91,6 +91,15 @@ function createNewElement(type) {
 
         gridContent.appendChild(newCell);
 
+
+        const newInput = document.createElement('input');
+        newInput.setAttribute('type', 'button');
+        newInput.classList.add('tool_option');
+        newInput.value = type + ' Tool';
+        toolsList.insertBefore(newInput, toolsList.firstChild);
+
+        modal.style.display = 'none';
+
         initializeDrawing(canvasTool);
 
     } else if (type === 'Text') {
@@ -106,15 +115,15 @@ function createNewElement(type) {
         });
 
         gridContent.appendChild(newCell);
+
+        const newInput = document.createElement('input');
+        newInput.setAttribute('type', 'button');    
+        newInput.classList.add('tool_option');
+        newInput.value = type + ' Tool';
+        toolsList.insertBefore(newInput, toolsList.firstChild);
+
+        modal.style.display = 'none';
     }
-
-    const newInput = document.createElement('input');
-    newInput.setAttribute('type', 'button');
-    newInput.classList.add('tool_option');
-    newInput.value = type + ' Tool';
-    toolsList.insertBefore(newInput, toolsList.firstChild);
-
-    modal.style.display = 'none';
 }
 
 // Close the modal when the user clicks on the close button
