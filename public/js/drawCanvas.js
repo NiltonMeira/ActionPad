@@ -1,118 +1,81 @@
-const canvas = Array.from( document.getElementsByClassName('myCanvas'))
+function initializeDrawing(canvas) {
+    const ctx = canvas.getContext('2d');
+    let isDrawing = false;
+    let lastX = 0;
+    let lastY = 0;
+    let strokeColor = '#6C3287'; 
+    let isErasing = false;
+    let eraserColor = '#f6f7fa'; 
+    let eraserLineWidth = 10; 
+    let pencilLineWidth = 1;
 
-// const ctx = canvas.forEach( x=> {
-//     x.getContext('2d');
-// });
+    canvas.width = canvas.parentElement.clientWidth;
+    canvas.height = canvas.parentElement.clientHeight - 100;
 
-const ctx = canvas.map(x=>x.getContext('2d'))
+    function draw(e) {
+        if (!isDrawing) return;
 
-const colorPicker = Array.from(document.getElementsByClassName('colorPicker'));
-const pencilSize = Array.from(document.getElementsByClassName('pencilSize'));
-const eraserBtn = Array.from(document.getElementsByClassName('eraserBtn'));
-const eraserSize = Array.from(document.getElementsByClassName('eraserSize'));
-const gridCell = document.querySelector('.grid_cell');
+        ctx.strokeStyle = isErasing ? eraserColor : strokeColor;
+        ctx.lineWidth = isErasing ? eraserLineWidth : pencilLineWidth;
+        ctx.beginPath();
+        ctx.moveTo(lastX, lastY);
+        ctx.lineTo(e.offsetX, e.offsetY);
+        ctx.stroke();
 
-let isDrawing = false;
-let lastX = 0;
-let lastY = 0;
-let strokeColor = '#6C3287'; 
-let isErasing = false;
-let eraserColor = '#f6f7fa'; 
-let eraserLineWidth = 10; 
-let pencilLineWidth = 1;
+        lastX = e.offsetX;
+        lastY = e.offsetY;
 
-function fitCanvasToGridCell() {
+        saveDrawing();
+    }
 
-    canvas.forEach(x => {
-        x.width = gridCell.clientWidth;
-        x.height = gridCell.clientHeight - 100;
-    });
-}
-
-fitCanvasToGridCell();
-
-function draw(e) {
-    if (!isDrawing) return;
-
-    ctx[0].strokeStyle = isErasing ? eraserColor : strokeColor;
-    ctx[0].lineWidth = isErasing ? eraserLineWidth : pencilLineWidth;
-    ctx[0].beginPath();
-    ctx[0].moveTo(lastX, lastY);
-    ctx[0].lineTo(e.offsetX, e.offsetY);
-    ctx[0].stroke();
-
-    lastX = e.offsetX;
-    lastY = e.offsetY;
-
-    saveDrawing();
-}
-
-canvas.forEach( x => {
-    x.addEventListener('mousedown', (e) => {
+    canvas.addEventListener('mousedown', (e) => {
         isDrawing = true;
         lastX = e.offsetX;
         lastY = e.offsetY;
     });
-});
 
+    canvas.addEventListener('mousemove', draw);
 
-canvas.forEach( x=> {
-    x.addEventListener('mousemove', draw); 
-});
+    canvas.addEventListener('mouseup', () => isDrawing = false);
 
-canvas.forEach( x=> {
-    x.addEventListener('mousemove', draw);
-});
+    canvas.addEventListener('mouseout', () => isDrawing = false);
 
-canvas.forEach( x=> {
-    x.addEventListener('mouseup', () => isDrawing = false);
-});
-
-canvas.forEach( x=> {
-    x.addEventListener('mouseout', () => isDrawing = false);
-});
-
-colorPicker.forEach(x => {
-    x.addEventListener('change', () => {
-        strokeColor = x.value;
+    const colorPicker = canvas.parentElement.querySelector('.colorPicker');
+    colorPicker.addEventListener('change', () => {
+        strokeColor = colorPicker.value;
     });
-});
 
-pencilSize.forEach(x => {
-    x.addEventListener('input', () => {
+    const pencilSize = canvas.parentElement.querySelector('.pencilSize');
+    pencilSize.addEventListener('input', () => {
         pencilLineWidth = pencilSize.value;
     });
-});
 
-eraserBtn.forEach(x => {
-    x.addEventListener('click', () => {
+    const eraserBtn = canvas.parentElement.querySelector('.eraserBtn');
+    eraserBtn.addEventListener('click', () => {
         isErasing = !isErasing;
-        x.textContent = isErasing ? 'Eraser' : 'Drawing';
+        eraserBtn.textContent = isErasing ? 'Eraser' : 'Drawing';
     });
-});
 
-eraserSize.forEach(x => {
-    x.addEventListener('input', () => {
-        eraserLineWidth = x.value;
+    const eraserSize = canvas.parentElement.querySelector('.eraserSize');
+    eraserSize.addEventListener('input', () => {
+        eraserLineWidth = eraserSize.value;
     });
-});
 
-function saveDrawing() {
-const dataURL = canvas.forEach(x => {
-    x.toDataURL();
-});
-localStorage.setItem('drawing', dataURL); 
+    function saveDrawing() {
+        const dataURL = canvas.toDataURL();
+        localStorage.setItem('drawing', dataURL); 
+    }
+
+    window.addEventListener('load', () => {
+        const savedDrawing = localStorage.getItem('drawing');
+        if (savedDrawing) {
+            const img = new Image();
+            img.onload = function() {
+                ctx.drawImage(img, 0, 0);
+            };
+            img.src = savedDrawing;
+        }
+    });
+
+    window.addEventListener('resize', fitCanvasToGridCell);
 }
-
-window.addEventListener('load', () => {
-const savedDrawing = localStorage.getItem('drawing');
-if (savedDrawing) {
-    const img = new Image();
-    img.onload = function() {
-        ctx[0].drawImage(img, 0, 0);
-    };
-    img.src = savedDrawing;
-}
-});
-
-window.addEventListener('resize', fitCanvasToGridCell);
