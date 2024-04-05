@@ -5,6 +5,7 @@ const route = express.Router();
 const home = require('./src/controllers/home');
 const cadastro = require('./src/controllers/cadastro');
 const login = require('./src/controllers/login');
+const text = require('./src/controllers/text');
 // Iniciando as rotas
 route.get('/', home.pagInicialGet);
 route.post('/cadastro', cadastro.usuarioInsert);
@@ -17,5 +18,7 @@ route.get('/page_select', home.pageSelectGet);
 route.get('/new_page', home.newPageGet)
 
 route.get('/page', home.pageGet)
+
+route.post('/text', text.textoInsert)
 
 module.exports = route;

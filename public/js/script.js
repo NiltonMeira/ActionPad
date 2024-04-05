@@ -1,3 +1,5 @@
+const text = require("../../src/controllers/text");
+
 const themeSwitch = document.getElementById('theme-checkbox');
 const addCellBtn = document.getElementById('addCellBtn');
 const modal = document.getElementById('myModal');
@@ -108,17 +110,53 @@ function createNewElement(type) {
 
     } else if (type === 'Text') {
 
+        const formDiv = document.createElement('form');
+        formDiv.method = "post";
+        formDiv.action = "/text";
+        newCell.appendChild(formDiv);
+
         const textDiv = document.createElement('div');
         textDiv.id = "editor" + editor_count;
-        newCell.appendChild(textDiv);
+        textDiv.name = "content";
+        formDiv.appendChild(textDiv);
+
+        const button = document.createElement("button");
+        button.classList.add("bookmarkBtn");
+        button.type = "submit";
+        formDiv.appendChild(button)
+
+        const span = document.createElement("span");
+        span.classList.add("IconContainer");
+        button.appendChild(span);
+
+        const svg = document.createElement("svg");
+        svg.setAttribute("viewBox", "0 0 384 512");
+        svg.setAttribute("height", "0.9em");
+        svg.classList.add("icon")
+        span.appendChild(svg)
+
+        const path = document.createElement("path")
+        path.setAttribute("d", "M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z")
+        svg.appendChild(path);
+
+        const p =  document.createElement("p");
+        p.classList.add("text");
+        p.textContent = 'Save'
+
+        button.appendChild(p);
+        
+
+
 
         ClassicEditor
             .create(textDiv)
             .catch(error => {
-            console.error(error);
+                console.error(error);
         });
 
         gridContent.appendChild(newCell);
+
+
 
         const newInput = document.createElement('input');
         newInput.setAttribute('type', 'button');    
@@ -135,4 +173,5 @@ document.getElementsByClassName('close')[0].addEventListener('click', function()
     modal.style.display = 'none';
 });
 
-editors();
+
+
