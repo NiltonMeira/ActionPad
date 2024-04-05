@@ -25,7 +25,6 @@ function initializeDrawing(canvas) {
         lastX = e.offsetX;
         lastY = e.offsetY;
 
-        saveDrawing();
     }
 
     canvas.addEventListener('mousedown', (e) => {
@@ -36,7 +35,36 @@ function initializeDrawing(canvas) {
 
     canvas.addEventListener('mousemove', draw);
 
-    canvas.addEventListener('mouseup', () => isDrawing = false);
+    canvas.addEventListener('mouseup', () => {
+        isDrawing = false;
+    
+        canvas.toBlob((blob) => {
+            const reader = new FileReader();
+            reader.onload = () => {
+                const base64Image = reader.result.split(',')[1]; // Extract base64 data
+                const formData = new FormData();
+    
+                formData.append("id", 0);
+                formData.append("user", 0);
+                formData.append('image', base64Image);
+    
+                fetch("/saveImage", {
+                    method: "POST",
+                    body: formData
+                }).then(res => {
+                    if (res.status === 200) {
+                        console.log("Success!")
+                    } else {
+                        console.log("Error!")
+                    }
+                }).catch(err => {
+                    console.error(err.message);
+                });
+            };
+            reader.readAsDataURL(blob);
+        }, "image/jpeg");
+    
+    });
 
     canvas.addEventListener('mouseout', () => isDrawing = false);
 
