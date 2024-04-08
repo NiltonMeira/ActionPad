@@ -8,6 +8,29 @@ const toolsList = document.querySelector('.tools_list');
 
 let editor_count = 0;
 
+const load = (id) => {
+    fetch(`/getHTML?id=${id}`, {
+        method: "GET",
+    }).then(x => {
+        return x.text();
+    }).then(value => {
+        document.querySelector("body").outerHTML = value;
+    })
+}
+
+document.getElementById("saveButton").addEventListener("click", () => {
+    const html = document.getElementsByTagName("body")[0].outerHTML
+
+    const body = new URLSearchParams()
+    body.append("html", html)
+    fetch("/saveHTML", {
+        method: "post",
+        body: body
+    }).then(res => {
+        console.log(res)
+    })
+})
+
 themeSwitch.addEventListener('change', function() {
     if(this.checked) {
         document.documentElement.classList.add('dark-mode');

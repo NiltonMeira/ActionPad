@@ -1,9 +1,10 @@
 const express = require('express');
 const routes = require('./routes');
 const db = require('./src/config/db')
+const parser = require('body-parser')
 
 const app = express();
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true, limit: "200mb" }));
 // Static files
 app.use(express.static('public'));
 // EJS

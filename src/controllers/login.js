@@ -1,3 +1,4 @@
+global.currentUser;
 const usuario = require("../model/usuarios");
 
 module.exports = {
@@ -8,13 +9,16 @@ module.exports = {
 
         const findedPerson = await usuario.findOne({
             raw: true,
-            attributes: ['Email', 'Password'],
+            attributes: ['IDUsuario', 'Email', 'Password'],
             where: {Email: email, Password: password}
         });
 
         if(findedPerson){
             console.log("Login Efetuado")
             res.redirect('/page_select')
+            currentUser = findedPerson.IDUsuario;
+            console.log("User: ");
+            console.log(currentUser);
         }
         else{
             resultado = false
@@ -22,6 +26,4 @@ module.exports = {
             res.render("../views/login", {resultado});
         }
     }
-
-   
 }

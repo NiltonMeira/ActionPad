@@ -5,6 +5,7 @@ const route = express.Router();
 const home = require('./src/controllers/home');
 const cadastro = require('./src/controllers/cadastro');
 const login = require('./src/controllers/login');
+const saveHTML = require('./src/controllers/saveHTML');
 
 
 // Iniciando as rotas
@@ -19,5 +20,8 @@ route.get('/page_select', home.pageSelectGet);
 route.get('/new_page', home.newPageGet)
 
 route.get('/page', home.pageGet)
+
+route.post('/saveHTML', saveHTML.save)
+route.get('/getHTML', saveHTML.getHTML)
 
 module.exports = route;
