@@ -1,59 +1,23 @@
-const themeSwitch = document.getElementById('theme-checkbox');
-const addCellBtn = document.getElementById('addCellBtn');
-const modal = document.getElementById('myModal');
-const textOption = document.getElementById('textOption');
-const drawOption = document.getElementById('drawOption');
-const gridContent = document.querySelector('.grid_content');
-const toolsList = document.querySelector('.tools_list');
+let themeSwitch = document.getElementById('theme-checkbox');
+let addCellBtn = document.getElementById('addCellBtn');
+let modal = document.getElementById('myModal');
+let textOption = document.getElementById('textOption');
+let drawOption = document.getElementById('drawOption');
+let gridContent = document.querySelector('.grid_content');
+let toolsList = document.querySelector('.tools_list');
 
-let editor_count = 0;
 
-const load = (id) => {
-    fetch(`/getHTML?id=${id}`, {
-        method: "GET",
-    }).then(x => {
-        return x.text();
-    }).then(value => {
-        document.querySelector("body").outerHTML = value;
-    })
+const getElements = () => {
+    themeSwitch = document.getElementById('theme-checkbox');
+    addCellBtn = document.getElementById('addCellBtn');
+    modal = document.getElementById('myModal');
+    textOption = document.getElementById('textOption');
+    drawOption = document.getElementById('drawOption');
+    gridContent = document.querySelector('.grid_content');
+    toolsList = document.querySelector('.tools_list');
 }
 
-document.getElementById("saveButton").addEventListener("click", () => {
-    const html = document.getElementsByTagName("body")[0].outerHTML
-
-    const body = new URLSearchParams()
-    body.append("html", html)
-    fetch("/saveHTML", {
-        method: "post",
-        body: body
-    }).then(res => {
-        console.log(res)
-    })
-})
-
-themeSwitch.addEventListener('change', function() {
-    if(this.checked) {
-        document.documentElement.classList.add('dark-mode');
-        window.isDarkMode = true;
-        
-    } else {
-        document.documentElement.classList.remove('dark-mode');
-        window.isDarkMode = false;
-       
-    }
-});
-
-addCellBtn.addEventListener('click', () => {
-    modal.style.display = 'block';
-});
-
-textOption.addEventListener('click', () => {
-    createNewElement('Text');
-});
-
-drawOption.addEventListener('click', () => {
-    createNewElement('Drawing');
-});
+let editor_count = 0;
 
 function createNewElement(type) {
     const newCell = document.createElement('div');
@@ -154,8 +118,55 @@ function createNewElement(type) {
 }
 
 // Close the modal when the user clicks on the close button
-document.getElementsByClassName('close')[0].addEventListener('click', function() {
-    modal.style.display = 'none';
-});
 
-editors();
+
+const createListeners = () => {
+    themeSwitch.addEventListener('change', function() {
+        if(this.checked) {
+            document.documentElement.classList.add('dark-mode');
+            window.isDarkMode = true;
+            
+        } else {
+            document.documentElement.classList.remove('dark-mode');
+            window.isDarkMode = false;
+           
+        }
+    });
+    
+    
+    addCellBtn.addEventListener('click', () => {
+        modal.style.display = 'block';
+    });
+    
+    textOption.addEventListener('click', () => {
+        createNewElement('Text');
+    });
+    
+    drawOption.addEventListener('click', () => {
+        createNewElement('Drawing');
+    });
+    
+    document.getElementsByClassName('close')[0].addEventListener('click', function() {
+        modal.style.display = 'none';
+    });
+    
+    document.getElementById("saveButton").addEventListener("click", () => {
+        const html = document.getElementsByTagName("body")[0].innerHTML
+    
+        const body = new URLSearchParams()
+        body.append("html", html)
+        fetch("/saveHTML", {
+            method: "post",
+            body: body
+        }).then(res => {
+            console.log(res)
+        })
+    })
+}
+
+
+try {
+    editors();  
+} catch (e) {
+    console.log(e);
+}

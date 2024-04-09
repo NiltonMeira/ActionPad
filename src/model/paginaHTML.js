@@ -14,15 +14,14 @@ const paginaHTML = database.define('paginaHTML', {
     HTMLContent: {
         type: Sequelize.TEXT,
         allowNull: false
+    },
+    IDPagina: {
+        type: Sequelize.INTEGER
+    },
+    IDUsuario: {
+        type: Sequelize.INTEGER
     }
 });
 
-paginaHTML.belongsTo(usuarios, {
-    foreignKey: 'IDUsuario'
-});
-
-paginaHTML.belongsTo(paginas, {
-    foreignKey: "IDPagina"
-});
 
 module.exports = paginaHTML;

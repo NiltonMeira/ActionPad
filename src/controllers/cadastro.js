@@ -1,8 +1,3 @@
-const elementos = require('../model/elementos');
-const ferramentas = require('../model/ferramentas');
-const ferramentasPredef = require('../model/ferramentasPredef');
-const paginas = require('../model/paginas');
-const predefinicoes = require('../model/predefinicoes');
 const usuarios = require('../model/usuarios');
 
 module.exports = {

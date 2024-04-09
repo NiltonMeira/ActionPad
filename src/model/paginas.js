@@ -1,8 +1,6 @@
 // Importação
 const Sequelize = require('sequelize');
 const database = require('../config/db');
-const usuarios = require('./usuarios');
-const predefinicoes = require('./predefinicoes');
 
 // Criando a tabela Páginas
 const paginas = database.define('Paginas', {
@@ -18,13 +16,6 @@ const paginas = database.define('Paginas', {
     }
 });
 
-paginas.belongsTo(usuarios, {
-    foreignKey: 'IDUsuario'
-});
-
-paginas.belongsTo(predefinicoes, {
-    foreignKey: 'IDPredefinicoes'
-});
 
 // Exportando essa tabela
-module.exports = usuarios;
+module.exports = paginas;
