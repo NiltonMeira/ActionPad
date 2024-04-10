@@ -88,10 +88,12 @@ function createNewElement(type) {
         newInput.classList.add('tool_option');
         newInput.value = name;
         toolsList.insertBefore(newInput, toolsList.firstChild);
+        
+        initializeDrawing(canvasTool);
 
         modal.style.display = 'none';
 
-        initializeDrawing(canvasTool);
+        
 
     } else if (type === 'Text') {
 
@@ -174,7 +176,7 @@ const createListeners = () => {
         }).then(res => {
             console.log(res)
         })
-    })
+    });
 }
 
 
