@@ -1,9 +1,3 @@
-let currentPage;
-document.getElementById("btn1").addEventListener("click", function (event) {
-  currentPage = 1;
-  console.log(currentPage)
-});
-
 let themeSwitch = document.getElementById('theme-checkbox');
 themeSwitch.addEventListener('change', function() {
   if(this.checked) {
