@@ -7,7 +7,11 @@ const load = (id_user, id_page) => {
     }).then(value => {
         document.querySelector("body").innerHTML = value;
         getElements();
+        Array.from(document.querySelectorAll(".myCanvas")).forEach(x => {
+            initializeDrawing(x);
+        })
         createListeners();
+
     })
 }
 
