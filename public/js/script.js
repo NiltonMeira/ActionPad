@@ -118,22 +118,35 @@ function createNewElement(type) {
 }
 
 // Close the modal when the user clicks on the close button
+function toggleTheme() {
+    const checkbox = document.getElementById('theme-checkbox');
+    const body = document.body;
+    
+    if (checkbox.checked) {
+     
+      body.classList.remove('dark-mode');
+      localStorage.setItem('theme', 'light');
+    } else {
+      body.classList.add('dark-mode');
+      localStorage.setItem('theme', 'dark');
+    }
+  }
+  
+  // Verifica a preferência de tema armazenada no localStorage ao carregar a página
+  function applyStoredTheme() {
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme === 'dark') {
+      document.body.classList.add('dark-mode');
+      document.getElementById('theme-checkbox').checked = true;
+    }
+  }
+  
+  // Aplica a preferência de tema armazenada ao carregar a página
+  window.onload = applyStoredTheme;
 
 
 const createListeners = () => {
-    themeSwitch.addEventListener('change', function() {
-        if(this.checked) {
-            document.documentElement.classList.add('dark-mode');
-            window.isDarkMode = true;
-            
-        } else {
-            document.documentElement.classList.remove('dark-mode');
-            window.isDarkMode = false;
-           
-        }
-    });
-    
-    
+     
     addCellBtn.addEventListener('click', () => {
         modal.style.display = 'block';
     });
