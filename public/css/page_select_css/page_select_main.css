@@ -2,6 +2,21 @@ body {
     background-color: var(--bg_color);
 }
 
+.delete_button {
+    border: 2px solid #6C3287;
+    border-radius: 10px;
+    box-shadow: 5px 5px #6C3287;
+    background-color: var(--input_bg_color);
+    color: var(--input_color);
+    margin: 30px;
+}
+
+.delete_div {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+}
+
 .card_display {
     margin-top: 80px;
     display: grid;
