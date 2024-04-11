@@ -16,6 +16,6 @@ module.exports = {
     Confirm: dados.passwordConfirm
     });
     // Redirecionar para a página principal
-    res.redirect('/');
+    res.redirect('/login');
     }
     }  

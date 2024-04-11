@@ -85,19 +85,19 @@
         <form action="/cadastro" method="post" class="form_setup">
           <div class="container-fluid small_box">
 
-            <input type="text" class="input_text" placeholder="Name" name="name">
+            <input type="text" class="input_text" placeholder="Name" name="name" required>
           </div>
           <div class="container-fluid small_box">
 
-            <input type="text" class="input_text" placeholder="Email" name="email">
+            <input type="email" class="input_text" placeholder="Email" name="email" required>
           </div>
           <div class="container-fluid small_box">
 
-            <input type="password" class="input_text" placeholder="Password" name="password">
+            <input type="password" class="input_text" placeholder="Password" name="password" required>
           </div>
           <div class="container-fluid small_box">
 
-            <input type="password" class="input_text" placeholder="Confirm Password" name="passwordConfirm">
+            <input type="password" class="input_text" placeholder="Confirm Password" name="passwordConfirm" required>
           </div>
           <button type="submit" class="btn"><b>Create</b></button>
           <p>Already have an account ? <a href="/login">click here</a></p>

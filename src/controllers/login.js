@@ -19,11 +19,16 @@ module.exports = {
             currentUser = findedPerson.IDUsuario;
             console.log("User: ");
             console.log(currentUser);
+            
+
+
         }
         else{
             resultado = false
             console.log("Senha Incorreta")
             res.render("../views/login", {resultado});
         }
+        
+        
     }
 }
