@@ -4,18 +4,12 @@ Projeto criado com a ideia de ser um gerenciador de tarefas inovador, diferente 
 Features:
 
 - Login de usuarios
-- Criação de varias paginas
+- Acesso a várias ferramentas de anotações
 - Bloco de notas com editor de texto
 - Checklist 
 - Cards task
-- Kanbam pronto
 - Desenho whitebord 
-- Calendario (possibilidade de utilização da api google)
 - Tabelas
-- Personalização do site
-- Gráficos
-- Arrastar objetos
-- Criação de variaveis, condicionais, e loops de repetições
 
 Design: 
 - Tema minimalista 
